@@ -5,5 +5,5 @@
 set -e
 
 exec 5>&1
-output="$(gofmt -l -w "$@")"
-echo "$output"
+output="$(gofmt -l -w "$@" | tee /dev/null)"
+[[ -z "$output" ]]

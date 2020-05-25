@@ -5,5 +5,5 @@
 set -e
 
 exec 5>&1
-output="$(goimports -l -w -local git.code.oa.com "$@")"
-echo "$output"
+output="$(goimports -l -w -local git.code.oa.com "$@" | tee /dev/null)"
+[[ -z "$output" ]]
